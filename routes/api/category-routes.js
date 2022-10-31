@@ -31,6 +31,11 @@ router.get('/:id', async (req, res) => {
 
 router.post('/', (req, res) => {
   // create a new category
+  const newCategory = req.body.category_name;
+  // add category to the database
+  Category.create({ category_name: newCategory })
+  //send response to close connection
+  res.send("Category successfully sent");
 });
 
 router.put('/:id', (req, res) => {
