@@ -15,6 +15,7 @@ Product.init(
       primaryKey: true,
       autoIncrement: true
     },
+    product_name: DataTypes.STRING(100),
     price: DataTypes.INTEGER,
     stock: DataTypes.INTEGER,
     category_id: {
