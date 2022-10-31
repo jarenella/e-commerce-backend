@@ -39,11 +39,27 @@ router.post('/', (req, res) => {
 });
 
 router.put('/:id', (req, res) => {
+  // saving user's selected new category name to a variable
+  const newName = req.body.category_name;
   // update a category by its `id` value
+  Category.update({category_name: newName}, {
+    where: {
+      category_id: req.params.id
+    }
+  })
+  //send response to close connection
+  res.send("Request successfully recieved");
 });
 
 router.delete('/:id', (req, res) => {
   // delete a category by its `id` value
+  Category.destroy({
+    where: {
+      category_id: req.params.id
+    }
+  })
+  //send response to close connection
+  res.send("Request successfully recieved");
 });
 
 module.exports = router;
